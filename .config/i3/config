@@ -288,7 +288,7 @@ bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 #Print screenshot
-bindsym Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/pnG
+bindsym Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 bindsym Ctrl+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 ##########################################
 # configuration for workspace behaviour: #
@@ -373,7 +373,7 @@ for_window [class="microsoft teams - preview"] focus
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #start ibus 
-exec --no-startup-id ibus
+exec --no-startup-id ibus-daemon -xim -d -r
 #set run config window
 exec --no-startup-id ~/.screenlayout/default.sh
 
@@ -511,7 +511,7 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 bar {
 		font pango: Noto Sans Regular 10
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    	position bottom
+	    	position top
 #	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
