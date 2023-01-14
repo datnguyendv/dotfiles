@@ -19,7 +19,3 @@ require "user.indentline"
 require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
-<<<<<<< HEAD
-require "line-number"
-=======
->>>>>>> 7636ba9685d17c5df11daa95ed1dabf305f40666
