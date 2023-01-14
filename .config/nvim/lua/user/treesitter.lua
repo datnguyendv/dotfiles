@@ -14,7 +14,7 @@ configs.setup({
 		enable = true,
 	},
 	autotag = {
-		enable: true
-	}
+		enable = true,
+	},
 	indent = { enable = true, disable = { "python", "css" } },
 })
