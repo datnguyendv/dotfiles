@@ -328,6 +328,7 @@ assign [class="Thunderbird"] $ws4
 assign [class="TelegramDesktop"] $ws5
 assign [class="Microsoft-edge"] $ws3
 assign [class="microsoft teams - preview"] $ws3
+assign [class="postman - bin"] $ws3
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
