@@ -109,9 +109,12 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="source ~/.zshrc"
 # alias kubectl="minikube kubectl --"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+#source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /home/laughing/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(fnm env --use-on-cd)"
+# source /home/laughing/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fnm
+export PATH="/home/laughing/.local/bin:$PATH"
+eval "`fnm env`"
