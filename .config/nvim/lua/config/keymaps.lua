@@ -56,3 +56,15 @@ api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 -- Comments
 api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
 api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
+
+-- Move
+vim.api.nvim_set_keymap("n", "ml", "$", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "ml", "$", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "mh", "0", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "mh", "0", { noremap = true, silent = true })
+
+-- Key mapping to save the file
+vim.api.nvim_set_keymap("n", "<Leader>w", ":w<CR>", { noremap = true, silent = true })
+
+-- Key mapping to close the file
+vim.api.nvim_set_keymap("n", "<Leader>q", ":q<CR>", { noremap = true, silent = true })
