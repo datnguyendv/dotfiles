@@ -1,85 +1,38 @@
-# Neovim from scratch
+# Neovim Config
 
-**Update** When I initially created this repo I didn't anticipate the amount of breaking changes, if you'd like to use the same basic config as this one as a base I recommend my new repo: [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
+Welcome to my NeoVim config. Use it for inspiration.
 
-**Another Update** This repo is updated to work with Neovim 0.8. All packages are pinned in `master` so it should remain stable. Branches will be updated eventually.
+## plugins
 
-Each video will be associated with a branch so checkout the one you are interested in, you can follow along with this [playlist](https://www.youtube.com/watch?v=ctH-a-1eUME&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ).
+[lazy.nvim](https://github.com/folke/lazy.nvim) - Plugin manager  
+[comment.nvim](https://github.com/numToStr/Comment.nvim) - Commenting  
+[copilot](https://github.com/zbirenbaum/copilot.lua) - Github copilot integration  
+[gitsigns](https://github.com/lewis6991/gitsigns.nvim) - Git status signs  
+[indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) - Indentation UI  
+[leap](https://github.com/ggandor/leap.nvim) - Quick navigation in viewable text  
+[lspconfig](https://github.com/neovim/nvim-lspconfig) - Language Server Protocol support  
+[lspsaga](https://github.com/glepnir/lspsaga.nvim) - Enhanced LSP support  
+[lualine](https://github.com/nvim-lualine/lualine.nvim) - Statusline  
+[mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim) - Better mason and lsp-config integration  
+[efm-langserver](https://github.com/mattn/efm-langserver) - Linting and Formatting  
+[mason](https://github.com/williamboman/mason.nvim) - LSP installation management  
+[catppuccin](https://github.com/morhetz/gruvbo) - catppuccin colourscheme  
+[noice](https://github.com/folke/noice.nvim) - vim commandline ui  
+[nvim-autopairs](https://github.com/windwp/nvim-autopairs) - autopair completion  
+[nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - auto-completion support  
+[nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) - file tree explorer  
+[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - file icons  
+[telescope](https://github.com/nvim-telescope/telescope.nvim) - fuzzy finder  
+[tmux-navigator](https;//github.com/christoomey/vim-tmux-navigator) - tmux window navigation  
+[trouble](https://github.com/folke/trouble.nvim) - diagnostics  
+[vim-illuminate](https://github.com/RRethy/vim-illuminate) - illuminates instances of word under cursor  
+[whichkey](https://github.com/folke/which-key.nvim) - shortcut hints  
+[hardtime.nvim](https://github.com/m4xshen/hardtime.nvim) - establish better vim habits  
 
-## Try out this config
+## neovim version supported
 
-Make sure to remove or move your current `nvim` directory
+^0.9.0
 
-**IMPORTANT** Requires [Neovim v0.8.0](https://github.com/neovim/neovim/releases). Please [upgrade](#upgrade-to-latest-release) if you're on an earlier version. 
-```
-git clone https://github.com/LunarVim/Neovim-from-scratch.git ~/.config/nvim
-```
+## author
 
-Run `nvim` and wait for the plugins to be installed. (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
-
-**NOTE** [Mason](https://github.com/williamboman/mason.nvim) is now used to install and manage LSP servers, DAP servers, linters, and formatters via the `:Mason` command.
-
-## Get healthy
-
-Open `nvim` and enter the following:
-
-```
-:checkhealth
-```
-
-You'll probably notice you don't have support for copy/paste also that python and node haven't been setup
-
-So let's fix that
-
-First we'll fix copy/paste
-
-- On mac `pbcopy` should be builtin
-
-- On Ubuntu
-
-  ```
-  sudo apt install xsel
-  ```
-
-- On Arch Linux
-
-  ```
-  sudo pacman -S xsel
-  ```
-  
-- Wayland users
-
-  [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
-
-
-Next we need to install python support (node is optional)
-
-- Neovim python support
-
-  ```
-  pip install pynvim
-  ```
-
-- Neovim node support
-
-  ```
-  npm i -g neovim
-  ```
----
-
-**NOTE** make sure you have [node](https://nodejs.org/en/) installed, I recommend a node manager like [fnm](https://github.com/Schniz/fnm).
-
-### Upgrade to latest release
-
-Assuming you [built from source](https://github.com/neovim/neovim/wiki/Building-Neovim#quick-start), `cd` into the folder where you cloned `neovim` and run the following commands. 
-```
-git pull
-make distclean && make CMAKE_BUILD_TYPE=Release
-git checkout v0.8.0
-sudo make install
-nvim -v
-```
-
-> The computing scientist's main challenge is not to get confused by the complexities of his own making. 
-
-\- Edsger W. Dijkstra
+Radley E. Sidwell-Lewis
