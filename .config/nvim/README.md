@@ -34,6 +34,7 @@ Welcome to my NeoVim config. Use it for inspiration.
 [vim-illuminate](https://github.com/RRethy/vim-illuminate) - illuminates instances of word under cursor  
 [whichkey](https://github.com/folke/which-key.nvim) - shortcut hints  
 [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim) - establish better vim habits
+[vim-terraform](https://github.com/hashivim/vim-terraform) - terraform auto-completion
 
 ## neovim version supported
 
