@@ -58,6 +58,18 @@ return {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
 		},
+		{
+			"ANGkeith/telescope-terraform-doc.nvim",
+			config = function()
+				require("telescope").load_extension("terraform_doc")
+			end,
+		},
+		{
+			"cappyzawa/telescope-terraform.nvim",
+			config = function()
+				require("telescope").load_extension("terraform")
+			end,
+		},
 	},
 	keys = keys,
 	config = config,

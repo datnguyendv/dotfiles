@@ -30,6 +30,8 @@ local config = function()
 			"vue",
 			"svelte",
 			"toml",
+			"terraform",
+			"hcl",
 		},
 		auto_install = true,
 		highlight = {

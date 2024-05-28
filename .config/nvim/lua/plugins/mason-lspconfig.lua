@@ -10,6 +10,7 @@ local opts = {
 		"emmet_ls",
 		"jsonls",
 		"clangd",
+		"tflint",
 	},
 
 	automatic_installation = true,

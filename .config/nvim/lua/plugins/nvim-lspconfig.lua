@@ -128,6 +128,12 @@ local config = function()
 		},
 	})
 
+	-- Terraform
+	lspconfig.terraformls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
@@ -141,6 +147,7 @@ local config = function()
 	local solhint = require("efmls-configs.linters.solhint")
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
+	local terraformfmt = require("efmls-configs.formatters.terraform_fmt")
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -163,6 +170,7 @@ local config = function()
 			"css",
 			"c",
 			"cpp",
+			"terraform",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -192,6 +200,7 @@ local config = function()
 				css = { prettier_d },
 				c = { clangformat, cpplint },
 				cpp = { clangformat, cpplint },
+				terraform = { terraformfmt },
 			},
 		},
 	})
