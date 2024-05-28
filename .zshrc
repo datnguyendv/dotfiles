@@ -117,4 +117,8 @@ alias zshconfig="source ~/.zshrc"
 
 # fnm
 export PATH="/home/laughing/.local/bin:$PATH"
+#export PATH="$PATH:/opt/nvim/"
 eval "`fnm env`"
+
+# To customize prompt, run `p10k configure` or edit ~/config/dotfiles/.p10k.zsh.
+[[ ! -f ~/config/dotfiles/.p10k.zsh ]] || source ~/config/dotfiles/.p10k.zsh
