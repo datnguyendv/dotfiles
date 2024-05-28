@@ -2,6 +2,12 @@
 
 Welcome to my NeoVim config. Use it for inspiration.
 
+## installation
+
+1. clone this repository( mv to config/ if need)
+2. go to nvim-lspconfig file and install all library need with :Mason
+3. enjoy
+
 ## plugins
 
 [lazy.nvim](https://github.com/folke/lazy.nvim) - Plugin manager  
@@ -27,12 +33,8 @@ Welcome to my NeoVim config. Use it for inspiration.
 [trouble](https://github.com/folke/trouble.nvim) - diagnostics  
 [vim-illuminate](https://github.com/RRethy/vim-illuminate) - illuminates instances of word under cursor  
 [whichkey](https://github.com/folke/which-key.nvim) - shortcut hints  
-[hardtime.nvim](https://github.com/m4xshen/hardtime.nvim) - establish better vim habits  
+[hardtime.nvim](https://github.com/m4xshen/hardtime.nvim) - establish better vim habits
 
 ## neovim version supported
 
 ^0.9.0
-
-## author
-
-Radley E. Sidwell-Lewis
