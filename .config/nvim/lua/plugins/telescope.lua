@@ -72,5 +72,6 @@ return {
 		},
 	},
 	keys = keys,
+	lazy = false,
 	config = config,
 }
