@@ -11,6 +11,7 @@ local opts = {
 		"jsonls",
 		"clangd",
 		"tflint",
+		"ansible-lint",
 	},
 
 	automatic_installation = true,

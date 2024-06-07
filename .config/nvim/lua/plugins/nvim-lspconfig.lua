@@ -134,7 +134,7 @@ local config = function()
 		on_attach = on_attach,
 	})
 
-	local luacheck = require("efmls-configs.linters.luacheck")
+  local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
@@ -148,6 +148,10 @@ local config = function()
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
 	local terraformfmt = require("efmls-configs.formatters.terraform_fmt")
+	local ansiblelint = {
+    lintCommand = "ansiblelint -",
+    lintFormats = {"%f:%l: %m"},
+  }
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -171,6 +175,7 @@ local config = function()
 			"c",
 			"cpp",
 			"terraform",
+      "ansible",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -201,6 +206,7 @@ local config = function()
 				c = { clangformat, cpplint },
 				cpp = { clangformat, cpplint },
 				terraform = { terraformfmt },
+				ansible = { ansiblelint },
 			},
 		},
 	})
