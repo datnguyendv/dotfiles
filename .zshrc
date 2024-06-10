@@ -109,5 +109,5 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/config/dotfiles/.p10k.zsh.
+[[ ! -f ~/config/dotfiles/.p10k.zsh ]] || source ~/config/dotfiles/.p10k.zsh
