@@ -14,4 +14,6 @@
   
 [user]
 	name = datnguyendv
-	email = laughing@nexondv.com
+	email = nguyenvandat6901@gmail.com
+[credential]
+	helper = cache
