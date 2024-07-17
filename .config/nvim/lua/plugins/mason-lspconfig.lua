@@ -12,6 +12,7 @@ local opts = {
 		"clangd",
 		"tflint",
 		"ansible-lint",
+		"yamlls",
 	},
 
 	automatic_installation = true,
