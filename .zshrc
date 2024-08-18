@@ -111,3 +111,13 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 # To customize prompt, run `p10k configure` or edit ~/config/dotfiles/.p10k.zsh.
 [[ ! -f ~/config/dotfiles/.p10k.zsh ]] || source ~/config/dotfiles/.p10k.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+# fnm
+FNM_PATH="/Users/laughing/Library/Application Support/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/Users/laughing/Library/Application Support/fnm:$PATH"
+  eval "`fnm env`"
+fi
