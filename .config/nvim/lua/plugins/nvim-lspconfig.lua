@@ -134,7 +134,26 @@ local config = function()
 		on_attach = on_attach,
 	})
 
-  local luacheck = require("efmls-configs.linters.luacheck")
+	lspconfig.yamlls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		settings = {
+			yaml = {
+				schemas = {
+					["https://json.schemastore.org/github-action.json"] = "/.github/action.{yml,yaml}",
+					["https://json.schemastore.org/renovate.json"] = "/renovate.{yml,yaml}",
+					["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "/docker-compose.{yml,yaml}",
+					["https://kubernetesjsonschema.dev/master-standalone-strict/all.json"] = "/*.yaml",
+				},
+				format = { enable = true },
+				validate = true,
+				hover = true,
+				completion = true,
+			},
+		},
+	})
+
+	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
@@ -148,10 +167,14 @@ local config = function()
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
 	local terraformfmt = require("efmls-configs.formatters.terraform_fmt")
+	local yamllint = {
+		lintCommand = "yamllint -f parsable -",
+		lintFormats = { "%f:%l:%c: %m" },
+	}
 	local ansiblelint = {
-    lintCommand = "ansiblelint -",
-    lintFormats = {"%f:%l: %m"},
-  }
+		lintCommand = "ansiblelint -",
+		lintFormats = { "%f:%l: %m" },
+	}
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -175,7 +198,9 @@ local config = function()
 			"c",
 			"cpp",
 			"terraform",
-      "ansible",
+			"ansible",
+			"yaml",
+			"yml",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -207,6 +232,8 @@ local config = function()
 				cpp = { clangformat, cpplint },
 				terraform = { terraformfmt },
 				ansible = { ansiblelint },
+				yaml = { yamllint },
+				yml = { yamllint },
 			},
 		},
 	})
