@@ -9,6 +9,7 @@ mapkey("<leader>`", "e #", "n") -- Switch to Other Buffer
 -- Directory Navigatio}n
 mapkey("<leader>m", "NvimTreeFocus", "n")
 mapkey("<leader>e", "NvimTreeToggle", "n")
+mapkey("<leader>tt", "ToggleTerm", "n")
 
 -- Pane and Window Navigation
 mapkey("<C-h>", "<C-w>h", "n") -- Navigate Left
