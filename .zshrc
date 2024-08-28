@@ -116,8 +116,9 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
 # fnm
-FNM_PATH="/Users/laughing/Library/Application Support/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/Users/laughing/Library/Application Support/fnm:$PATH"
-  eval "`fnm env`"
-fi
+# FNM_PATH="/Users/laughing/Library/Application Support/fnm"
+# if [ -d "$FNM_PATH" ]; then
+#   export PATH="/Users/laughing/Library/Application Support/fnm:$PATH"
+#   eval "`fnm env`"
+# fi
+eval "$(fnm env)"
