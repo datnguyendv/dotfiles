@@ -4,7 +4,6 @@ return {
 	config = function()
 		require("toggleterm").setup({
 			size = 20, -- Kích thước mặc định của terminal
-			-- open_mapping = [[<leader>tt]], -- Phím tắt để mở terminal (Ctrl + \)
 			shade_terminals = true, -- Bật tính năng làm mờ các terminal
 			shading_factor = 2, -- Mức độ làm mờ
 			start_in_insert = true, -- Bắt đầu ở chế độ insert khi mở terminal
