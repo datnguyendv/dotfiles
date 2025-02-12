@@ -84,7 +84,7 @@ plugins=(git
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+bindkey '^L' autosuggest-accept
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="source ~/.zshrc"
+alias k="kubectl"
+alias tf="terraform"
 # alias kubectl="minikube kubectl --"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -119,6 +121,7 @@ alias zshconfig="source ~/.zshrc"
 export PATH="/home/laughing/.local/bin:$PATH"
 #export PATH="$PATH:/opt/nvim/"
 eval "`fnm env`"
+eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/config/dotfiles/.p10k.zsh.
 [[ ! -f ~/config/dotfiles/.p10k.zsh ]] || source ~/config/dotfiles/.p10k.zsh
