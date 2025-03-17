@@ -108,6 +108,7 @@ bindkey '^L' autosuggest-accept
 alias zshconfig="source ~/.zshrc"
 alias k="kubectl"
 alias tf="terraform"
+alias gcloud="~/google-cloud-sdk/bin/gcloud"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 export LANG=en_US.UTF-8
@@ -125,3 +126,5 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 #   eval "`fnm env`"
 # fi
 eval "$(fnm env)"
+
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
