@@ -108,8 +108,8 @@ bindkey '^L' autosuggest-accept
 alias zshconfig="source ~/.zshrc"
 alias k="kubectl"
 alias tf="terraform"
-alias gcloud="~/google-cloud-sdk/bin/gcloud"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+alias as="ansible"
+alias ex="exit"
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -117,14 +117,17 @@ export LC_ALL=en_US.UTF-8
 [[ ! -f ~/config/dotfiles/.p10k.zsh ]] || source ~/config/dotfiles/.p10k.zsh
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
 
-# fnm
-# FNM_PATH="/Users/laughing/Library/Application Support/fnm"
-# if [ -d "$FNM_PATH" ]; then
-#   export PATH="/Users/laughing/Library/Application Support/fnm:$PATH"
-#   eval "`fnm env`"
-# fi
 eval "$(fnm env)"
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/datnguyen/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
