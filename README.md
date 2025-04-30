@@ -12,9 +12,15 @@ git clone git@github.com:datnguyendv/dotfiles.git ~/config/
 
 ## 2. Install Oh My Zsh and Powerlevel10k
 
+Oh My Zsh installation
+
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
+Powerlevel10k themes
+
+```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
   "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 ```

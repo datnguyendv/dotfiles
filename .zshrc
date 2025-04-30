@@ -11,6 +11,7 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+source $ZSH/oh-my-zsh.sh
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -78,14 +79,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git z zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete)
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 bindkey '^L' autosuggest-accept
+
 # export MANPATH="/usr/local/man:$MANPATH"
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -103,16 +107,12 @@ bindkey '^L' autosuggest-accept
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshconfig="source ~/.zshrc"
 alias k="kubectl"
 alias tf="terraform"
 alias as="ansible"
 alias ex="exit"
 
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 # To customize prompt, run `p10k configure` or edit ~/config/dotfiles/.p10k.zsh.
 [[ ! -f ~/config/dotfiles/.p10k.zsh ]] || source ~/config/dotfiles/.p10k.zsh
 
@@ -121,10 +121,6 @@ autoload -U +X bashcompinit && bashcompinit
 eval "$(fnm env)"
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
-
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
-
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/datnguyen/.docker/completions $fpath)
