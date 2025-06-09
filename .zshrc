@@ -11,7 +11,6 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-source $ZSH/oh-my-zsh.sh
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -120,6 +119,7 @@ autoload -U +X bashcompinit && bashcompinit
 
 eval "$(fnm env)"
 
+source $ZSH/oh-my-zsh.sh
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
