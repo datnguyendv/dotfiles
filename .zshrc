@@ -111,6 +111,7 @@ alias k="kubectl"
 alias tf="terraform"
 alias as="ansible"
 alias ex="exit"
+alias n="nvim"
 
 # To customize prompt, run `p10k configure` or edit ~/config/dotfiles/.p10k.zsh.
 [[ ! -f ~/config/dotfiles/.p10k.zsh ]] || source ~/config/dotfiles/.p10k.zsh
