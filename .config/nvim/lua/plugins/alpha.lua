@@ -8,7 +8,7 @@ return {
 			config = {
 				week_header = {
 					enable = true,
-					concat = "The best way to predict the future is to create it.",
+					concat = '"The best way to predict the future is to create it."',
 				},
 				shortcut = {
 					{
