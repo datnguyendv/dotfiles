@@ -1,81 +1,82 @@
 return {
-	"goolord/alpha-nvim",
+	"nvimdev/dashboard-nvim",
 	event = "VimEnter",
-	enabled = true,
-	init = false,
-	opts = function()
-		local dashboard = require("alpha.themes.dashboard")
-		local logo = [[
-         ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
-         ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
-         ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
-         ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
-         ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║
-         ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
-
-                         ▀████▀▄▄              ▄█  
-                           █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ 
-                   ▄        █          ▀▀▀▀▄  ▄▀  
-                 ▄▀ ▀▄      ▀▄              ▀▄▀  
-                 ▄▀    █     █▀   ▄█▀▄      ▄█   
-                ▀▄     ▀▄  █     ▀██▀     ██▄█   
-                 ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  
-                  █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀ 
-                 █   █  █      ▄▄           ▄▀   
-    ]]
-
-		dashboard.section.header.val = vim.split(logo, "\n")
-    -- stylua: ignore
-    dashboard.section.buttons.val = {
-      dashboard.button("f", " " .. " Find file",       "<cmd> Telescope find_files <cr>"),
-      dashboard.button("n", " " .. " New file",        "<cmd> ene <BAR> startinsert <cr>"),
-      dashboard.button("r", " " .. " Recent files",    "<cmd> Telescope oldfiles <cr>"),
-      dashboard.button("g", " " .. " Find text",       "<cmd> Telescope live_grep <cr>"),
-      dashboard.button("c", " " .. " Config",          "<cmd> e $MYVIMRC <cr>"),
-      dashboard.button("m", " " .. " Lazy Extras",     "<cmd> Mason <cr>"),
-      dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
-      dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
-    }
-		for _, button in ipairs(dashboard.section.buttons.val) do
-			button.opts.hl = "AlphaButtons"
-			button.opts.hl_shortcut = "AlphaShortcut"
-		end
-		dashboard.section.header.opts.hl = "AlphaHeader"
-		dashboard.section.buttons.opts.hl = "AlphaButtons"
-		dashboard.section.footer.opts.hl = "AlphaFooter"
-		dashboard.opts.layout[1].val = 8
-		return dashboard
-	end,
-	config = function(_, dashboard)
-		-- close Lazy and re-open when the dashboard is ready
-		if vim.o.filetype == "lazy" then
-			vim.cmd.close()
-			vim.api.nvim_create_autocmd("User", {
-				once = true,
-				pattern = "AlphaReady",
-				callback = function()
-					require("lazy").show()
-				end,
-			})
-		end
-
-		require("alpha").setup(dashboard.opts)
-
-		vim.api.nvim_create_autocmd("User", {
-			once = true,
-			pattern = "LazyVimStarted",
-			callback = function()
-				local stats = require("lazy").stats()
-				local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-				dashboard.section.footer.val = "⚡ Neovim loaded "
-					.. stats.loaded
-					.. "/"
-					.. stats.count
-					.. " plugins in "
-					.. ms
-					.. "ms"
-				pcall(vim.cmd.AlphaRedraw)
-			end,
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = function()
+		require("dashboard").setup({
+			theme = "hyper",
+			config = {
+				week_header = {
+					enable = true,
+					concat = "The best way to predict the future is to create it.",
+				},
+				shortcut = {
+					{
+						desc = "󰱼  Find File",
+						group = "@property",
+						action = "Telescope find_files",
+						key = "f",
+					},
+					{
+						desc = "  Find Word",
+						group = "@property",
+						action = "Telescope live_grep",
+						key = "w",
+					},
+					{
+						desc = "  Projects",
+						group = "@property",
+						action = "Telescope project",
+						key = "p",
+					},
+					{
+						desc = "  Lazy",
+						group = "@property",
+						action = "Lazy",
+						key = "l",
+					},
+					{
+						desc = "  Config",
+						group = "@property",
+						action = "edit ~/.config/nvim",
+						key = "c",
+					},
+					{
+						desc = "  Quit",
+						group = "@property",
+						action = "qa",
+						key = "q",
+					},
+				},
+				packages = { enable = true }, -- show how many plugins installed
+				project = {
+					enable = true,
+					limit = 8,
+					icon = "",
+					label = " Recent Projects",
+					action = "Telescope find_files cwd=",
+				},
+				mru = { limit = 10, icon = "", label = " Recent Files", cwd_only = true },
+			},
 		})
+		vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#e69d4e", bold = true })
+		vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#a6e3a1", italic = true })
+
+		vim.api.nvim_set_hl(0, "DashboardProjectTitle", { fg = "#89dceb", bold = true })
+		vim.api.nvim_set_hl(0, "DashboardProjectIcon", { fg = "#f9e2af" })
+		vim.api.nvim_set_hl(0, "DashboardProjectTitleIcon", { fg = "#f9e2af" })
+
+		vim.api.nvim_set_hl(0, "DashboardMruTitle", { fg = "#89dceb", bold = true })
+		vim.api.nvim_set_hl(0, "DashboardMruIcon", { fg = "#f9e2af" })
+		vim.api.nvim_set_hl(0, "DashboardMruTitleIcon", { fg = "#f9e2af" })
+
+		vim.api.nvim_set_hl(0, "DashboardFiles", { fg = "#cdd6f4" })
+		vim.api.nvim_set_hl(0, "DashboardFilesTitle", { fg = "#89b4fa", bold = true })
+		vim.api.nvim_set_hl(0, "DashboardFilesIcon", { fg = "#f5c2e7" })
+		vim.api.nvim_set_hl(0, "DashboardFilesTitleIcon", { fg = "#fab387" })
+
+		vim.api.nvim_set_hl(0, "DashboardShortCut", { fg = "#94e2d5" })
+		vim.api.nvim_set_hl(0, "DashboardShortCutIcon", { fg = "#ee80c2" })
+		vim.api.nvim_set_hl(0, "DashboardShortCutKey", { fg = "#f38ba8", bold = true })
 	end,
 }

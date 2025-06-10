@@ -45,9 +45,21 @@ local config = function()
 		},
 		extensions = {
 			"fzf",
+			project = {
+				base_dirs = {
+					-- "~/Code/", -- 👈 sửa lại theo thư mục bạn dùng
+					{ path = "~/Code", max_depth = 5 },
+				},
+				hidden_files = true,
+				theme = "dropdown",
+				order_by = "recent",
+				search_by = "path",
+				sync_with_nvim_tree = true,
+			},
 		},
 	})
 	telescope.load_extension("fzf")
+	telescope.load_extension("project")
 end
 
 return {
@@ -68,6 +80,12 @@ return {
 			"cappyzawa/telescope-terraform.nvim",
 			config = function()
 				require("telescope").load_extension("terraform")
+			end,
+		},
+		{
+			"nvim-telescope/telescope-project.nvim",
+			config = function()
+				require("telescope").load_extension("project")
 			end,
 		},
 	},
