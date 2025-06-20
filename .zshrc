@@ -35,6 +35,7 @@ alias tf="terraform"
 alias as="ansible"
 alias ex="exit"
 alias n="nvim"
+alias istio="istioctl"
 
 # Load Oh-My-Zsh
 source $ZSH/oh-my-zsh.sh
