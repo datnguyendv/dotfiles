@@ -1,7 +1,7 @@
 return {
   "nvimdev/dashboard-nvim",
   event = "VimEnter",
-  dependencies = { "echasnovski/mini.icons" },
+  dependencies = { "nvim-mini/mini.icons" },
   config = function()
     require("dashboard").setup({
       theme = "hyper",
