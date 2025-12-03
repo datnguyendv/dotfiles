@@ -2,6 +2,8 @@
 
 Instructions for installing and configuring dotfiles on macOS systems.
 
+Install `MesloLG Nerd font`
+
 ---
 
 ## ✅ Run `setup-dotfiles.sh`
@@ -10,7 +12,7 @@ This script automates the steps below to configure your development environment.
 
 ---
 
-## 🔧 What the script does:
+## 🔧 What the script does
 
 ### 1. Clone Dotfiles Repository
 
