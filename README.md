@@ -2,7 +2,7 @@
 
 Instructions for installing and configuring dotfiles on macOS systems.
 
-Install `MesloLG Nerd font`
+Install `MesloLG Nerd font` in <https://www.nerdfonts.com/font-downloads>
 
 ---
 
