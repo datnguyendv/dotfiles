@@ -72,5 +72,3 @@ source .zshrc
 ---
 
 ✅ **All done!** You can now enjoy your customized shell environment.
-
-Test
