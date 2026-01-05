@@ -4,7 +4,7 @@ Instructions for installing and configuring dotfiles on macOS systems.
 
 Install `MesloLG Nerd font` in <https://www.nerdfonts.com/font-downloads>
 
----
+File `keybindings.itermkeymap` is using for iterm
 
 ## ✅ Run `setup-dotfiles.sh`
 
