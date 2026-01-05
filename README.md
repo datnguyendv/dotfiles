@@ -6,6 +6,8 @@ Install `MesloLG Nerd font` in <https://www.nerdfonts.com/font-downloads>
 
 File `keybindings.itermkeymap` and `Dracula.itermcolors` is using for iterm
 
+Copy file `setup-dotfiles.sh` to your home path first
+
 ## ✅ Run `setup-dotfiles.sh`
 
 This script automates the steps below to configure your development environment.
