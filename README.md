@@ -1,74 +1,96 @@
 # 🚀 Dotfiles Setup Guide
 
-Instructions for installing and configuring dotfiles on macOS systems.
+Automated configuration for macOS development environment using Zsh, Oh My Zsh, Powerlevel10k, and essential plugins.
 
-Install `MesloLG Nerd font` in <https://www.nerdfonts.com/font-downloads>
+## 📋 Prerequisites
 
-File `keybindings.itermkeymap` and `Dracula.itermcolors` is using for iterm
+Before running the installation script, please ensure you have the following:
 
-Copy file `setup-dotfiles.sh` to your home path first or do the step in this readme
-
-## ✅ Run `setup-dotfiles.sh`
-
-This script automates the steps below to configure your development environment.
+1. **Git** installed on your system.
+2. **iTerm2** installed (recommended terminal).
+3. **MesloLGS NF Font**:
+   - Download and install [MesloLGS NF](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) (recommended for Powerlevel10k).
+   - _Or generic Nerd Fonts:_ [NerdFonts.com](https://www.nerdfonts.com/font-downloads).
+   - **Important:** Open iTerm2 Preferences -> Profiles -> Text -> Change Font to `MesloLGS NF`.
 
 ---
 
-## 🔧 What the script does
+## 🛠 Installation
 
-### 1. Clone Dotfiles Repository
+Follow these steps to set up your environment.
 
-```bash
-git clone git@github.com:datnguyendv/dotfiles.git ~/config/
-```
+### 1. Clone the Repository
 
-### 2. Install Oh My Zsh and Powerlevel10k
-
-**Install Oh My Zsh:**
+We will clone the dotfiles into `~/config/dotfiles`.
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Create the config directory
+mkdir -p ~/config
+
+# Clone the repository
+git clone git@github.com:datnguyendv/dotfiles.git ~/config/dotfiles
 ```
 
-**Install Powerlevel10k theme:**
+### 2. Run the Setup Script
 
-```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-```
-
-### 3. Navigate to the dotfiles directory
+Navigate to the directory and run the installation script. This script is idempotent (safe to run multiple times).
 
 ```bash
 cd ~/config/dotfiles
+
+# Make the script executable
+chmod +x setup-dotfiles.sh
+
+# Run the script
+./setup-dotfiles.sh
 ```
 
-### 4. Install dependencies via Homebrew
+### 3. Apply Changes
+
+Once the script finishes, restart your terminal or run:
 
 ```bash
-brew bundle install
+source ~/.zshrc
 ```
 
-### 5. Create symbolic links to the home directory
+## 🤖 What does the script do?
 
-> ⚠️ Warning: Review the files before running this to avoid overwriting personal configs.
+The `setup-dotfiles.sh` automates the following tasks:
 
-```bash
-ln -s ~/config/dotfiles/.* ~/
-```
+1. **Installs Oh My Zsh:** The framework for managing your Zsh configuration.
 
-### 6. Remove `.git` symlink (if needed)
+2. **Installs Powerlevel10k:** A fast and flexible Zsh theme.
 
-```bash
-ln -F ~/config/dotfiles/.git ~/.git
-```
+3. **Installs Plugins:**
+   - **zsh-autosuggestions:** Suggests commands as you type based on history.
 
-### 7. Apply config
+   - **zsh-syntax-highlighting:** Highlights commands while typing.
 
-```bash
-source .zshrc
-```
+4. **Symlinks Dotfiles:**
+   - Links all configuration files (starting with .) from ~/config/dotfiles to your home directory ~/.
 
----
+   - Safety: It automatically backs up/removes old config files to avoid conflicts.
 
-✅ **All done!** You can now enjoy your customized shell environment.
+   - Exclusion: It strictly excludes .git and .DS_Store to keep your home directory clean.
+
+## 🎨 iTerm2 Configuration
+
+To get the full visual experience, you need to manually import the color schemes and keybindings included in this repo.
+
+1. **Colors (Dracula):**
+   - Open iTerm2.
+
+   - Press `Cmd + ,` to open Preferences.
+
+   - Go to **Profiles** -> **Colors**.
+
+   - Click **Color Presets...** -> **Import...**
+
+   - Select the file: `~/config/dotfiles/Dracula.itermcolors.`
+
+2. **Keybindings:**
+   - Go to **Profiles** -> **Keys**.
+
+   - Click **Key Mappings** -> **Import...**
+
+   - Select the file: `~/config/dotfiles/keybindings.itermkeymap.`
