@@ -356,7 +356,7 @@
     "Alpha Component": 1,
     "Green Component": 0.9042816162109375
   },
-  "Normal Font": "MesloLGS-NF-Regular 14",
+  "Normal Font": "MesloLGSNFM-Regular 14",
   "Use Selected Text Color (Dark)": true,
   "Foreground Color": {
     "Red Component": 0.996078431372549,
@@ -647,4 +647,3 @@
   "Close Sessions On End": true,
   "Non-ASCII Anti Aliased": true
 }
-
